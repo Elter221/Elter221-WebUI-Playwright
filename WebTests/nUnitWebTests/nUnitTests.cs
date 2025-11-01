@@ -10,6 +10,7 @@ public class nUnitTests
 {
     private IPlaywright _playwright;
     private IBrowser _browser;
+    private IBrowserContext _browserContext;
 
     [OneTimeSetUp]
     public async Task Setup()
@@ -30,12 +31,12 @@ public class nUnitTests
 
     private async Task<IPage> CreateNewPageAsync()
     {
-        var context = await _browser.NewContextAsync(new BrowserNewContextOptions
+        _browserContext = await _browser.NewContextAsync(new BrowserNewContextOptions
         {
             ViewportSize = new ViewportSize { Width = 1920, Height = 1080 }
         });
 
-        var page = await context.NewPageAsync();
+        var page = await _browserContext.NewPageAsync();
         await page.GotoAsync("https://en.ehuniversity.lt/");
         await HandleCookieConsent(page);
 
