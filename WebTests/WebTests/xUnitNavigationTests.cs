@@ -6,8 +6,8 @@ namespace WebTestsXUnit;
 public class xUnitNavigationTests : IAsyncLifetime
 {
     private IPlaywright _playwright;
-    private IBrowser _browser;
     private IBrowserContext _context;
+    private IBrowser _browser;
     private IPage _page;
 
     public async Task InitializeAsync()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Playwright;
 using NUnit.Framework;
+using nUnitWebTests;
 using CategoryAttribute = NUnit.Framework.CategoryAttribute;
 
 namespace WebTestsNUnit;
@@ -11,21 +12,19 @@ public class nUnitTests
     private IPlaywright _playwright;
     private IBrowser _browser;
     private IBrowserContext _browserContext;
+    private SearchPage _searchPageModel;
 
     [OneTimeSetUp]
     public async Task Setup()
     {
         _playwright = await Playwright.CreateAsync();
-        _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-        {
-            Headless = true
-        });
+        _browser = await SingletonBrowser.OpenBrowser(_playwright);
     }
 
     [OneTimeTearDown]
     public async Task TearDown()
     {
-        await _browser.CloseAsync();
+        await SingletonBrowser.CloseBrowser();
         _playwright.Dispose();
     }
 
@@ -39,6 +38,8 @@ public class nUnitTests
         var page = await _browserContext.NewPageAsync();
         await page.GotoAsync("https://en.ehuniversity.lt/");
         await HandleCookieConsent(page);
+
+        _searchPageModel= new SearchPage(page);
 
         return page;
     }
@@ -85,10 +86,7 @@ public class nUnitTests
 
         try
         {
-            await page.Locator("//div[@class='header-search']").ClickAsync();
-
-            await page.Locator("//div//input[@class='form-control']").FillAsync(searchTerm);
-            await page.Locator("//div//button[contains(text(), 'Search')]").ClickAsync();
+            await _searchPageModel.SearchProgramAsync(searchTerm);
 
             Assert.That(page.Url, Does.Contain($"/?s={searchTerm.Replace(" ", "+")}"));
             await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
