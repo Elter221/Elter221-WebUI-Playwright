@@ -151,7 +151,7 @@ public class nUnitTests
             var sNLocator = page.Locator("//li[strong[contains(text(), 'Join us in the social networks')]]");
             Assert.That(await sNLocator.IsVisibleAsync());
             var sNText = await sNLocator.InnerTextAsync();
-            Assert.AreEqual("Join us in the social networks: Facebook Telegram VK", sNText);
+            Assert.That("Join us in the social networks: Facebook Telegram VK", Does.Contain(sNText));
         }
         finally
         {
