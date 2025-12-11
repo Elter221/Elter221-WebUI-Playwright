@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36616.10
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11304.174 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTests", "WebTests\WebTests.csproj", "{DE6F8F5C-EC96-4EDE-9154-605703019951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nUnitWebTests", "nUnitWebTests\nUnitWebTests.csproj", "{D4363A80-6551-4038-8E8A-F55D9C5D2BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E2E.Tests", "E2E.Tests\E2E.Tests.csproj", "{1F99B463-F5B9-4DBF-95EC-E4ED5ABC1DE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D4363A80-6551-4038-8E8A-F55D9C5D2BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4363A80-6551-4038-8E8A-F55D9C5D2BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4363A80-6551-4038-8E8A-F55D9C5D2BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F99B463-F5B9-4DBF-95EC-E4ED5ABC1DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F99B463-F5B9-4DBF-95EC-E4ED5ABC1DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F99B463-F5B9-4DBF-95EC-E4ED5ABC1DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F99B463-F5B9-4DBF-95EC-E4ED5ABC1DE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

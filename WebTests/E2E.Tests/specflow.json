@@ -1,0 +1,7 @@
+{
+  "stepAssemblies": [
+    {
+      "assembly": "E2E.Tests"
+    }
+  ]
+}

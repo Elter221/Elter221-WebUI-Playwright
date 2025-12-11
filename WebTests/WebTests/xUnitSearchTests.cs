@@ -16,7 +16,7 @@ public class xUnitSearchTests : IAsyncLifetime
         _playwright = await Playwright.CreateAsync();
         _browser = await _playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = true
+            Headless = true,
         });
 
         _context = await _browser.NewContextAsync(new BrowserNewContextOptions
