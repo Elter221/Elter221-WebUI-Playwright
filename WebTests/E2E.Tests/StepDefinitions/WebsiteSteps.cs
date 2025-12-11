@@ -94,7 +94,8 @@ public class WebsiteSteps
             }
 
             if (await link.CountAsync() == 0)
-            {                link = _page.Locator($"//a[translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='{linkText.ToLower()}']").First;
+            {
+                link = _page.Locator($"//a[translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='{linkText.ToLower()}']").First;
             }
 
             await link.WaitForAsync(new LocatorWaitForOptions { Timeout = 10000 });
